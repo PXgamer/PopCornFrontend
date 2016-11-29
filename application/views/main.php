@@ -21,10 +21,10 @@
 			$movies = json_decode($movies_json);
 			foreach($movies as $movie) {
 		?>
-		<div class="col-md-3 col-sm-4 col-xs-6" >
+		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 movieModule">
 			<img src="<?php echo $movie->image_path ?>" alt="<?php echo $movie->name; ?>" class="img-responsive">
-			<p><?php echo $movie->name; ?></p>
-			<p><a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>">Detailansicht</a></p>
+			<h4><?php echo $movie->name; ?></h4>
+			<p><a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><h5>Zur Detailansicht</h5></a></p>
 		</div>
 		<?php
 			}
