@@ -70,3 +70,19 @@
 
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+		<form role="form" action="" method="post" id="ratingsForm">
+			<div class="form-group"> 
+				<label for="name">Name</label>
+				<input class="form-control" name="name" id="name" value="" required="required" />
+			</div>
+			<div class="form-group">
+				<label for="comment">Comment</label>
+				<textarea class="form-control" name="comment" id="comment" cols="30" rows="4" required="required"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	<div>
+<div>
