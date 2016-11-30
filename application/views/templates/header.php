@@ -9,5 +9,6 @@
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/custom/css/style.css">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/custom/css/font-awesome.css">
 </head>
 <body>
