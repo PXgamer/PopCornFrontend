@@ -12,29 +12,33 @@
     $path = 'http://localhost/PopCornMovies/movies/' . $id; 
     $movies_json = file_get_contents($path);
     $movie = json_decode($movies_json);
-		$cinemaxx = [];
-		$passage = [];
-		$savoy = [];
-		$uci = [];
-		foreach($movie->screenings as $screening) {
-			$cinema = $screening->cinema_id;
-			$time = $screening->end;
+	$cinemaxx = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
+	$passage = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
+	$savoy = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
+	$uci = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
+	foreach($movie->screenings as $screening) {
+		$cinema = $screening->cinema_id;
+		$time = $screening->end;
 
-			switch ($cinema) {
-				case 1:
-					array_push($cinemaxx, date("H:i", strtotime($time)));
-				break;
-				case 2:
-					array_push($passage, date("H:i", strtotime($time)));
-				break;
-				case 3:
-					array_push($savoy, date("H:i", strtotime($time)));
-				break;
-				case 4:
-					array_push($uci, date("H:i", strtotime($time)));
-				break;
-			}
+		switch ($cinema) {
+			case 1:
+				$cinemaxx[rand(1, 7)][] = date("H:i", strtotime($time));
+				$cinemaxx[0] = true;
+			break;
+			case 2:
+				$passage[rand(1, 7)][] = date("H:i", strtotime($time));
+				$passage[0] = true;
+			break;
+			case 3:
+				$savoy[rand(1, 7)][] = date("H:i", strtotime($time));
+				$savoy[0] = true;
+			break;
+			case 4:
+				$uci[rand(1, 7)][] = date("H:i", strtotime($time));
+				$uci[0] = true;
+			break;
 		}
+	}
 ?>
 <div class="container">
     <div class="row">
@@ -46,26 +50,105 @@
             <h4><?php echo $movie->description; ?></h4>
 						<h3>Kinos und Spielzeiten: </h3>
 						<?php
-						if(!empty($cinemaxx)) {
-							echo '<h4>CinemaXX Dammtor: </h4>';
-							echo implode(', ', $cinemaxx);
-						}
+						$week = array('Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag');
+						list($mo, $di, $mi, $do, $fr, $sa, $so) = $week;
+						?>
+					<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Kino</th>
+							<th><?=$mo;?></th>
+							<th><?=$di;?></th>
+							<th><?=$mi;?></th>
+							<th><?=$do;?></th>
+							<th><?=$fr;?></th>
+							<th><?=$sa;?></th>
+							<th><?=$so;?></th>
+						</tr>
+					</thead>
 
+					<tbody>
+						<tr>
+						<?php
+
+						if($cinemaxx[0]) {
+							?>
+							<tr>
+							<td>CinemaXX Dammtor</td>
+							<?php
+								for ($i = 1; $i <= 7; $i++) {
+									$times = $cinemaxx[$i];
+									if (empty($times)) {
+										echo "<td>X</td>";
+									}
+									else {
+										echo "<td>".implode(', ', $times)."</td>";
+									}
+								}
+							?>
+							</tr>
+							<?php
+						}
 						if(!empty($passage)) {
-							echo '<h4>Passage: </h4>';
-							echo implode(', ', $passage);
+							?>
+							<tr>
+							<td>Passage</td>
+							<?php
+								for ($i = 1; $i <= 7; $i++) {
+									$times = $passage[$i];
+									if (empty($times)) {
+										echo "<td>X</td>";
+									}
+									else {
+										echo "<td>".implode(', ', $times)."</td>";
+									}
+								}
+							?>
+							</tr>
+							<?php
 						}
 
 						if(!empty($savoy)) {
-							echo '<h4>Savoy: </h4>';
-							echo implode(', ', $savoy);
+							?>
+							<tr>
+							<td>Savoy</td>
+							<?php
+								for ($i = 1; $i <= 7; $i++) {
+									$times = $savoy[$i];
+									if (empty($times)) {
+										echo "<td>X</td>";
+									}
+									else {
+										echo "<td>".implode(', ', $times)."</td>";
+									}
+								}
+							?>
+							</tr>
+							<?php
 						}
 
 						if(!empty($uci)) {
-							echo '<h4>UCI Kinowelt Wandsbek: </h4>';
-							echo implode(', ', $uci);
+								?>
+								<tr>
+							<td>UCI Kinowelt Wandsbek</td>
+							<?php
+								for ($i = 1; $i <= 7; $i++) {
+									$times = $uci[$i];
+									if (empty($times)) {
+										echo "<td>X</td>";
+									}
+									else {
+										echo "<td>".implode(', ', $times)."</td>";
+									}
+								}
+							?>
+							</tr>
+							<?php
 						}
 						?>
+
+					</tbody>
+					</table>
         </div>
 
     </div>
