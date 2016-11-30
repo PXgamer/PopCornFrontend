@@ -4,6 +4,10 @@ $(document).ready(function(){
     $(document).on('submit', '#ratingsForm', function(e) {
         sendRating(e, $(this).closest('form'));
     });
+
+    $(document).on('click', '.container-slide .control', function(e){
+        $(this).closest('.container-slide').toggleClass('hover');     
+    });
 });
 
 function sendRating(e, form ){

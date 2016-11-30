@@ -45,4 +45,10 @@ body {
 
 .current-rating > label.full { color: #FFD700; float: none; } 
 .current-rating > label.full.empty,
-.current-rating > label.full.empty:hover { color: #ddd; float: none; } 
+.current-rating > label.full.empty:hover { color: #ddd; float: none; }
+
+.container-slide                  { width: 100%; height: 350px; position: fixed; left: 0; bottom: -320px; transition: all .3s; }
+.container-slide.hover            { bottom: 0; }
+.container-slide .form-container  { padding-top: 10px; padding-bottom: 10px; border-top: 1px solid #ddd; background-color: #ffffff;  }
+.container-slide .control         { width: 150px; background-color: #286090; float: right; }
+.container-slide .control p       { font-size: 22px; color: #ffffff; text-transform: uppercase; margin-bottom: 0; padding: 0 10px; }

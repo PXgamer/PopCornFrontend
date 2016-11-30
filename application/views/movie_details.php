@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovie!</h1>
+		<h1><a href="/PopCornFrontend/"><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</a></h1>
 	</div>
 </div>
 
@@ -186,46 +186,53 @@
 </div>
 
 
-<div class="container">
+<div class="container container-slide">
     <div class="row">
 		<div class="col-lg-12">
-			<form role="form" action="/PopCornMovies/ratings/<?php echo $id; ?>" method="post" id="ratingsForm">
-				<div class="form-group"> 
-					<label for="name">Name</label>
-					<input class="form-control" name="name" id="name" value=""/>
-				</div>
-				<div class="form-group">
-					<label for="comment">Comment</label>
-					<textarea class="form-control" name="comment" id="comment" cols="30" rows="4"></textarea>
-				</div>
-				<div class="form-group">
-					<fieldset class="rating user-rating">
-						<input type="radio" id="star5" name="rating" value="10" />
-						<label class="full" for="star5" title="Meisterwerk - 10 stars"></label>
-						<input type="radio" id="star4half" name="rating" value="9" />
-						<label class="full" for="star4half" title="Fast perfekt - 9 stars"></label>
-						<input type="radio" id="star4" name="rating" value="8" />
-						<label class = "full" for="star4" title="Sehr gut - 8 stars"></label>
-						<input type="radio" id="star3half" name="rating" value="7" />
-						<label class="full" for="star3half" title="Gut - 7 stars"></label>
-						<input type="radio" id="star3" name="rating" value="6" />
-						<label class = "full" for="star3" title="...war OK - 6 stars"></label>
-						<input type="radio" id="star2half" name="rating" value="5" />
-						<label class="full" for="star2half" title="Nicht so mein Ding - 5 stars"></label>
-						<input type="radio" id="star2" name="rating" value="4" />
-						<label class = "full" for="star2" title="Schlecht - 4 stars"></label>
-						<input type="radio" id="star1half" name="rating" value="3" />
-						<label class="full" for="star1half" title="Pfui - 3 stars"></label>
-						<input type="radio" id="star1" name="rating" value="2" />
-						<label class = "full" for="star1" title="Ganz schlecht - 2 stars"></label>
-						<input type="radio" id="starhalf" name="rating" value="1" />
-						<label class="full" for="starhalf" title="Nein danke!! - 1 star"></label>
-					</fieldset>
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary pull-right btn-rating">Abstimmen</button>
-				</div>
-			</form>
+			<div class="control">
+				<p>Abstimmen</p>
+			</div>
+		</div>
+		<div class="col-lg-12 form-container">
+			<div class="">
+				<form role="form" action="/PopCornMovies/ratings/<?php echo $id; ?>" method="post" id="ratingsForm">
+					<div class="form-group"> 
+						<label for="name">Name</label>
+						<input class="form-control" name="name" id="name" value=""/>
+					</div>
+					<div class="form-group">
+						<label for="comment">Comment</label>
+						<textarea class="form-control" name="comment" id="comment" cols="30" rows="4"></textarea>
+					</div>
+					<div class="form-group">
+						<fieldset class="rating user-rating">
+							<input type="radio" id="star5" name="rating" value="10" />
+							<label class="full" for="star5" title="Meisterwerk - 10 stars"></label>
+							<input type="radio" id="star4half" name="rating" value="9" />
+							<label class="full" for="star4half" title="Fast perfekt - 9 stars"></label>
+							<input type="radio" id="star4" name="rating" value="8" />
+							<label class="full" for="star4" title="Sehr gut - 8 stars"></label>
+							<input type="radio" id="star3half" name="rating" value="7" />
+							<label class="full" for="star3half" title="Gut - 7 stars"></label>
+							<input type="radio" id="star3" name="rating" value="6" />
+							<label class = "full" for="star3" title="...war OK - 6 stars"></label>
+							<input type="radio" id="star2half" name="rating" value="5" />
+							<label class="full" for="star2half" title="Nicht so mein Ding - 5 stars"></label>
+							<input type="radio" id="star2" name="rating" value="4" />
+							<label class = "full" for="star2" title="Schlecht - 4 stars"></label>
+							<input type="radio" id="star1half" name="rating" value="3" />
+							<label class="full" for="star1half" title="Pfui - 3 stars"></label>
+							<input type="radio" id="star1" name="rating" value="2" />
+							<label class = "full" for="star1" title="Ganz schlecht - 2 stars"></label>
+							<input type="radio" id="starhalf" name="rating" value="1" />
+							<label class="full" for="starhalf" title="Nein danke!! - 1 star"></label>
+						</fieldset>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary pull-right btn-rating">Abstimmen</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	<div>
 <div>

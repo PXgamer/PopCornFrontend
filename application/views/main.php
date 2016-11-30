@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</h1>
+		<h1><a href="/PopCornFrontend/"><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</a></h1>
 	</div>
 </div>
 
