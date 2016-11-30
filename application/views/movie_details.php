@@ -1,7 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
 <div class="container">
 	<div class="jumbotron">
 		<h1><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovie!</h1>
