@@ -3,6 +3,12 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+h1 a, h1 a:hover{
+  text-decoration: none;
+  outline: none;
+  color:black;
+}
+
 .movieModule {
   min-height: 525px;
 }
