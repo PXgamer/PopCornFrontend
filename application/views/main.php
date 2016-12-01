@@ -30,18 +30,20 @@
 
 <div class="container">
 	<div class="row">
-		<?php
-			$movies_json = file_get_contents('http://localhost/PopCornMovies/movies');
-			$movies = json_decode($movies_json);
-			foreach($movies as $movie) {
-		?>
-		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 movieModule">
-			<a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><img src="<?php echo $movie->image_path ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail"></a>
-			<h4><?php echo $movie->name; ?></h4>
-			<p><a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><h5>Zur Detailansicht</h5></a></p>
+		<div class="movieModuleWrapper">
+			<?php
+				$movies_json = file_get_contents('http://localhost/PopCornMovies/movies');
+				$movies = json_decode($movies_json);
+				foreach($movies as $movie) {
+			?>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 movieModule">
+				<a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><img src="<?php echo $movie->image_path ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail"></a>
+				<h4><?php echo $movie->name; ?></h4>
+				<p><a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><h5>Zur Detailansicht</h5></a></p>
+			</div>
+			<?php
+				}
+			?>
 		</div>
-		<?php
-			}
-		?>
 	</div>
 </div>
