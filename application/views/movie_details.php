@@ -152,7 +152,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 		<?php
-    	$path = 'http://localhost/PopCornMovies/ratings/' . $id . '/?type=custom_avg'; 
+    	$path = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id . '&type=custom_avg'; 
     	$ratings_json = file_get_contents($path);
     	$rating = json_decode($ratings_json);
 		?>
@@ -186,7 +186,7 @@
 			<h4>Kommentare: </h4>
 			<hr>
 			<?php
-			$path_cur_ratings = 'http://localhost/PopCornMovies/ratings/' . $id; 
+			$path_cur_ratings = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id; 
     		$cur_ratings_json = file_get_contents($path_cur_ratings);
     		$cur_ratings = json_decode($cur_ratings_json);
 
@@ -229,7 +229,7 @@
 		</div>
 		<div class="col-lg-12 form-container">
 			<div class="">
-				<form role="form" action="/PopCornMovies/ratings/<?php echo $id; ?>" method="post" id="ratingsForm">
+				<form role="form" action="/PopCornMovies/ratings" method="post" id="ratingsForm" data-movieId="<?php echo $id ?>">
 					<div class="form-group"> 
 						<label for="name">Name</label>
 						<input class="form-control" name="name" id="name" value="" placeholder="User" required />
