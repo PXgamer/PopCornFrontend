@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['movies'] = 'FrontendController/index';
 $route['movies/(:num)'] = 'FrontendController/details/$1';
+$route['cinema/(:num)'] = 'FrontendController/cinema/$1';

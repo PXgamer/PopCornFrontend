@@ -15,4 +15,10 @@ class FrontendController extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function cinema($id) {
+        $this->load->view('templates/header');
+        $this->load->view('cinema_details', array('id'=>$id));
+        $this->load->view('templates/footer');
+    }
+
 }
