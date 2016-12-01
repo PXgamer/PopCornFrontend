@@ -21,4 +21,8 @@ class FrontendController extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+     public function impressum() {
+        $this->load->view('templates/header');
+        $this->load->view('impressum');
+    }
 }

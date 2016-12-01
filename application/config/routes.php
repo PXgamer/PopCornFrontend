@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['movies'] = 'FrontendController/index';
 $route['movies/(:num)'] = 'FrontendController/details/$1';
 $route['cinema/(:num)'] = 'FrontendController/cinema/$1';
+$route['impressum'] = 'FrontendController/impressum';
