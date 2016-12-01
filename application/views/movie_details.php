@@ -1,11 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1><a href="/PopCornFrontend/"><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</a></h1>
-	</div>
-</div>
-
 <?php
     $path = 'http://localhost/PopCornMovies/movies/' . $id; 
     $movies_json = file_get_contents($path);
@@ -185,6 +179,46 @@
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<hr>
+			<h4>Kommentare: </h4>
+			<hr>
+			<?php
+			$path_cur_ratings = 'http://localhost/PopCornMovies/ratings/' . $id; 
+    		$cur_ratings_json = file_get_contents($path_cur_ratings);
+    		$cur_ratings = json_decode($cur_ratings_json);
+
+			foreach($cur_ratings as $rating) {
+			
+				if(!empty($rating->user_name)) {
+					echo "<h5><strong>User: </strong> " . $rating->user_name . "</h5>";
+				}
+
+				if(!empty($rating->rating)) {
+					echo "<h5><strong>Bewertung: </strong> " . $rating->rating . "</h5>";
+					echo "<div class='rating current-rating'>";
+						for($i = 0; $i < $rating->rating; $i++) {
+							echo '<label class="full"></label>';
+						}
+						
+						for($i = $rating->rating; $i < 10; $i++) {
+							echo '<label class="full empty"></label>';
+						}
+					echo "</div>";
+				}
+
+				if(!empty($rating->text)) {
+					echo "<h5><strong>Kommentar: </strong> " . $rating->text . "</h5>";
+				}
+
+				echo "<hr>";		
+			}
+			?>
+		</div>
+	</div>
+</div>
 
 <div class="container container-slide">
     <div class="row">
@@ -198,11 +232,11 @@
 				<form role="form" action="/PopCornMovies/ratings/<?php echo $id; ?>" method="post" id="ratingsForm">
 					<div class="form-group"> 
 						<label for="name">Name</label>
-						<input class="form-control" name="name" id="name" value=""/>
+						<input class="form-control" name="name" id="name" value="" placeholder="User" required />
 					</div>
 					<div class="form-group">
 						<label for="comment">Comment</label>
-						<textarea class="form-control" name="comment" id="comment" cols="30" rows="4"></textarea>
+						<textarea class="form-control" name="comment" id="comment" cols="30" rows="4" placeholder="Kommentar"></textarea>
 					</div>
 					<div class="form-group">
 						<fieldset class="rating user-rating">

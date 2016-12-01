@@ -1,12 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="container">
-	<div class="jumbotron">
-		<h1><a href="/PopCornFrontend/"><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</a></h1>
-	</div>
-</div>
-
-<div class="container">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="dropdown">

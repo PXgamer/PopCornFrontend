@@ -1,10 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1><a href="/PopCornFrontend/"><img src="<?php echo base_url();?>assets/gfx/logo.png" alt="Logo">PopCornMovies!</a></h1>
-	</div>
-</div>
 <?php
     $cinema_path = 'http://localhost/PopCornMovies/cinemas/' . $id;
     $cinema_json = file_get_contents($cinema_path);
