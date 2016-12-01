@@ -10,14 +10,18 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="dropdown">
-    		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Wählen Sie Ihr Kino...
+			<?php
+				$cinema_json = file_get_contents('http://localhost/PopCornMovies/cinemas');
+				$cinemas = json_decode($cinema_json);
+			?>
+    		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $cinemas[$id - 1]->name; ?>
     		<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 				<?php
-					$cinema_json = file_get_contents('http://localhost/PopCornMovies/cinemas');
-					$cinemas = json_decode($cinema_json);
 					foreach($cinemas as $cinema_selection) {
+						if($cinema_selection->id != $id) {
 						echo '<li><a href="/PopCornFrontend/cinema/' . $cinema_selection->id . '">' . $cinema_selection->name . '</a></li>';
+						}
 					}
 				?>
     		</ul>
