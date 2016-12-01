@@ -48,7 +48,7 @@
 						$week = array('Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag');
 						list($mo, $di, $mi, $do, $fr, $sa, $so) = $week;
 						?>
-					<table class="table table-bordered">
+					<table class="table table-bordered table-times">
 					<thead>
 						<tr>
 							<th>Kino</th>
@@ -68,15 +68,15 @@
 						if($cinemaxx[0]) {
 							?>
 							<tr>
-							<td>CinemaXX Dammtor</td>
+							<td data-th="Kino">CinemaXX Dammtor</td>
 							<?php
 								for ($i = 1; $i <= 7; $i++) {
 									$times = $cinemaxx[$i];
 									if (empty($times)) {
-										echo "<td>X</td>";
+										echo '<td data-th="'.$week[$i - 1].'">X</td>';
 									}
 									else {
-										echo "<td>".implode(', ', $times)."</td>";
+										echo '<td data-th="'.$week[$i - 1].'">'.implode(', ', $times).' Uhr</td>';
 									}
 								}
 							?>
@@ -86,15 +86,15 @@
 						if(!empty($passage)) {
 							?>
 							<tr>
-							<td>Passage</td>
+							<td data-th="Kino">Passage</td>
 							<?php
 								for ($i = 1; $i <= 7; $i++) {
 									$times = $passage[$i];
 									if (empty($times)) {
-										echo "<td>X</td>";
+										echo '<td data-th="'.$week[$i - 1].'">X</td>';
 									}
 									else {
-										echo "<td>".implode(', ', $times)."</td>";
+										echo '<td data-th="'.$week[$i - 1].'">'.implode(', ', $times).' Uhr</td>';
 									}
 								}
 							?>
@@ -105,15 +105,15 @@
 						if(!empty($savoy)) {
 							?>
 							<tr>
-							<td>Savoy</td>
+							<td data-th="Kino">Savoy</td>
 							<?php
 								for ($i = 1; $i <= 7; $i++) {
 									$times = $savoy[$i];
 									if (empty($times)) {
-										echo "<td>X</td>";
+										echo '<td data-th="'.$week[$i - 1].'">X</td>';
 									}
 									else {
-										echo "<td>".implode(', ', $times)."</td>";
+										echo '<td data-th="'.$week[$i - 1].'">'.implode(', ', $times).' Uhr</td>';
 									}
 								}
 							?>
@@ -124,15 +124,15 @@
 						if(!empty($uci)) {
 								?>
 								<tr>
-							<td>UCI Kinowelt Wandsbek</td>
+							<td data-th="Kino">UCI Kinowelt Wandsbek</td>
 							<?php
 								for ($i = 1; $i <= 7; $i++) {
 									$times = $uci[$i];
 									if (empty($times)) {
-										echo "<td>X</td>";
+										echo '<td data-th="'.$week[$i - 1].'">X</td>';
 									}
 									else {
-										echo "<td>".implode(', ', $times)."</td>";
+										echo '<td data-th="'.$week[$i - 1].'">'.implode(', ', $times).' Uhr</td>';
 									}
 								}
 							?>
