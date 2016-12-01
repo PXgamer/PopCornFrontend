@@ -212,7 +212,6 @@
 				if(!empty($rating->text)) {
 					echo "<h5><strong>Kommentar: </strong> " . $rating->text . "</h5>";
 				}
-
 				echo "<hr>";		
 			}
 			?>
@@ -228,7 +227,6 @@
 			</div>
 		</div>
 		<div class="col-lg-12 form-container">
-			<div class="">
 				<form role="form" action="/PopCornMovies/ratings" method="post" id="ratingsForm" data-movieId="<?php echo $id ?>">
 					<div class="form-group"> 
 						<label for="name">Name</label>
@@ -266,7 +264,6 @@
 						<button type="submit" class="btn btn-primary pull-right btn-rating">Abstimmen</button>
 					</div>
 				</form>
-			</div>
 		</div>
 	<div>
 <div>
