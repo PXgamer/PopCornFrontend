@@ -15,7 +15,7 @@ function sendRating(e, form ){
 				rating: form.find('.rating').find('input:checked').val(),
 				text: form.find('#comment').val()
 	};
-    console.log(arr);
+    //console.log(arr);
     $.ajax({
         url: form.attr('action'),
         dataType: 'json',
