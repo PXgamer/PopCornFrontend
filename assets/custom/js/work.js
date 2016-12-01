@@ -13,7 +13,8 @@ $(document).ready(function(){
 function sendRating(e, form ){
 	var arr = { user_name: form.find('#name').val(),
 				rating: form.find('.rating').find('input:checked').val(),
-				text: form.find('#comment').val()
+				text: form.find('#comment').val(),
+                movie_id: form.attr('data-movieId')
 	};
     //console.log(arr);
     $.ajax({
