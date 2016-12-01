@@ -109,7 +109,7 @@
       	<div class="row">
       		<div class="col-lg-12">
       		<?php
-          	$path = 'http://localhost/PopCornMovies/ratings/' . $id . '/?type=custom_avg';
+          	$path = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id . '&type=custom_avg';
           	$ratings_json = file_get_contents($path);
           	$rating = json_decode($ratings_json);
       		?>
