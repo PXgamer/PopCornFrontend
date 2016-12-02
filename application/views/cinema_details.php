@@ -62,7 +62,7 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
-                  <img src="<?php echo $movie->image_path ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail">
+                  <img src="<?php echo $movie->omdb->Poster; ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail">
               </div>
               <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
                   <h2><?php echo $movie->name; ?></h2>

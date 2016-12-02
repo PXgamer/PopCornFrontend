@@ -4,6 +4,12 @@
     $path = 'http://localhost/PopCornMovies/movies/' . $id; 
     $movies_json = file_get_contents($path);
     $movie = json_decode($movies_json);
+
+	$imdb_id = $movie->imdbID;
+    $imdb_path = 'http://www.omdbapi.com/?i=' . $imdb_id . '&plot=short&r=json'; 
+    $imdb_api = file_get_contents($imdb_path);
+    $imdb = json_decode($imdb_api);
+
 	$cinemaxx = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
 	$passage = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
 	$savoy = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
@@ -32,13 +38,22 @@
 		}
 	}
 ?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2><?php echo $movie->name; ?></h2>
+			<h6>Original: <?php echo $imdb->Title . ' - ' . $imdb->Year; ?></h6>
+			<h5>Filmlänge: <?php echo $imdb->Runtime; ?></h5>
+		</div>
+	</div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
-            <img src="<?php echo $movie->image_path ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail">
+            <img src="<?php echo $imdb->Poster ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail">
         </div>
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
-            <h2><?php echo $movie->name; ?></h2>
             <h4><?php echo $movie->description; ?></h4>
 						<h3>Kinos und Spielzeiten: </h3>
 						<?php
@@ -172,6 +187,32 @@
 					}
 
 					echo '/ ' . round($rating->rating, 2) . '';
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="rating-container">
+				<div>
+					<h4>IMDB Bewertung: </h4>
+				</div>
+				<div class="rating current-rating">
+					<?php
+					$imdb_star_rating = floor($imdb->imdbRating);
+					for($i = 0; $i < $imdb_star_rating; $i++) {
+						echo '<label class="full"></label>';
+					}
+					
+					for($i = $imdb_star_rating; $i < 10; $i++) {
+						echo '<label class="full empty"></label>';
+					}
+
+					echo '/ ' . round($imdb->imdbRating, 2) . '';
 					?>
 				</div>
 			</div>
