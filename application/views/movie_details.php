@@ -43,8 +43,12 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h2><?php echo $movie->name; ?></h2>
-			<h6>Original: <?php echo $imdb->Title . ' - ' . $imdb->Year; ?></h6>
+			<h6>Original: <?php echo $imdb->Title . ' - ' . $imdb->Year . ' - ' . $imdb->Country; ?></h6>
+			<h5>Genre: <?php echo $imdb->Genre; ?></h5>
 			<h5>Filmlänge: <?php echo $imdb->Runtime; ?></h5>
+			<h5>Regisseur: <?php echo $imdb->Director; ?></h5>
+			<h5>Schauspieler: <?php echo $imdb->Actors; ?></h5>
+			<hr>
 		</div>
 	</div>
 </div>
@@ -213,6 +217,7 @@
 					}
 
 					echo '/ ' . round($imdb->imdbRating, 2) . '';
+					echo ' (' . $imdb->imdbVotes . ' Bewertungen)';
 					?>
 				</div>
 			</div>
