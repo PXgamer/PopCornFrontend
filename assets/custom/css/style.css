@@ -85,6 +85,8 @@ h1 a, h1 a:hover, h1 a:focus {
 .container-slide .control         { width: 150px; background-color: #286090; float: right; cursor: pointer;}
 .container-slide .control p       { font-size: 22px; color: #ffffff; text-transform: uppercase; margin-bottom: 0; padding: 0 10px; }
 
+
+/**Tabelle**/
 @media (max-width: 980px) {
   .table-times  {
     border: none;
