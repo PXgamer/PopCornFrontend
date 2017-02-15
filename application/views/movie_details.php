@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php
-    $path = 'http://localhost/PopCornMovies/movies/' . $id; 
+    $path = $this->config->item('backend_url') . 'movies/' . $id; 
     $movies_json = file_get_contents($path);
     $movie = json_decode($movies_json);
 
@@ -42,12 +42,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2><?php echo $movie->name; ?></h2>
-			<h6>Original: <?php echo $imdb->Title . ' - ' . $imdb->Year . ' - ' . $imdb->Country; ?></h6>
-			<h5>Genre: <?php echo $imdb->Genre; ?></h5>
-			<h5>Filmlänge: <?php echo $imdb->Runtime; ?></h5>
-			<h5>Regisseur: <?php echo $imdb->Director; ?></h5>
-			<h5>Schauspieler: <?php echo $imdb->Actors; ?></h5>
+			<h2><?= $movie->name; ?></h2>
+			<h6>Original: <?= $imdb->Title . ' - ' . $imdb->Year . ' - ' . $imdb->Country; ?></h6>
+			<h5>Genre: <?= $imdb->Genre; ?></h5>
+			<h5>Filmlänge: <?= $imdb->Runtime; ?></h5>
+			<h5>Regisseur: <?= $imdb->Director; ?></h5>
+			<h5>Schauspieler: <?= $imdb->Actors; ?></h5>
 			<hr>
 		</div>
 	</div>
@@ -55,13 +55,13 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" >
-            <img src="<?php echo $imdb->Poster ?>" alt="<?php echo $movie->name; ?>" class="img-responsive img-thumbnail">
+            <img src="<?= $imdb->Poster ?>" alt="<?= $movie->name; ?>" class="img-responsive img-thumbnail">
         </div>
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" >
-            <h4><?php echo $movie->description; ?></h4>
+            <h4><?= $movie->description; ?></h4>
 						<h3>Kinos und Spielzeiten: </h3>
 						<?php
-						$cinemas_json = file_get_contents('http://localhost/PopCornMovies/cinemas/');
+						$cinemas_json = file_get_contents($this->config->item('backend_url') . 'cinemas/');
 						$cinemas = json_decode($cinemas_json);
 
 						$week = array('Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag');
@@ -171,7 +171,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 		<?php
-    	$path = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id . '&type=custom_avg'; 
+    	$path = $this->config->item('backend_url') . 'ratings/?movie_id=' . $id . '&type=custom_avg'; 
     	$ratings_json = file_get_contents($path);
     	$rating = json_decode($ratings_json);
 		?>
@@ -232,7 +232,7 @@
 			<h4>Kommentare: </h4>
 			<hr>
 			<?php
-			$path_cur_ratings = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id; 
+			$path_cur_ratings = $this->config->item('backend_url') . '/ratings/?movie_id=' . $id; 
     		$cur_ratings_json = file_get_contents($path_cur_ratings);
     		$cur_ratings = json_decode($cur_ratings_json);
 
@@ -273,7 +273,7 @@
 			</div>
 		</div>
 		<div class="col-lg-12 form-container">
-				<form role="form" action="/PopCornMovies/ratings" method="post" id="ratingsForm" data-movieId="<?php echo $id ?>">
+				<form role="form" action="<?= base_url('ratings') ?>" method="post" id="ratingsForm" data-movieId="<?= $id ?>">
 					<div class="form-group"> 
 						<label for="name">Name</label>
 						<input class="form-control" name="name" id="name" value="" placeholder="User" required />

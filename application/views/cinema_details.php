@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php
-    $cinema_path = 'http://localhost/PopCornMovies/cinemas/' . $id;
+    $cinema_path = $this->config->item('backend_url') . 'cinemas/' . $id;
     $cinema_json = file_get_contents($cinema_path);
     $cinema = json_decode($cinema_json);
 ?>
@@ -11,7 +11,7 @@
 		<div class="col-lg-12">
 			<div class="dropdown">
 			<?php
-				$cinema_json = file_get_contents('http://localhost/PopCornMovies/cinemas');
+				$cinema_json = file_get_contents($this->config->item('backend_url') . 'cinemas');
 				$cinemas = json_decode($cinema_json);
 			?>
     		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $cinemas[$id - 1]->name; ?>
@@ -20,7 +20,7 @@
 				<?php
 					foreach($cinemas as $cinema_selection) {
 						if($cinema_selection->id != $id) {
-						echo '<li><a href="/PopCornFrontend/cinema/' . $cinema_selection->id . '">' . $cinema_selection->name . '</a></li>';
+						echo '<li><a href="' . base_url('cinema/' . $cinema_selection->id) . '">' . $cinema_selection->name . '</a></li>';
 						}
 					}
 				?>
@@ -33,14 +33,14 @@
 <div class="container">
 	<div class="row">
     <div class="col-lg-12">
-      <h2 class="text-center"><?php echo $cinema->name; ?></h2>
+      <h2 class="text-center"><?= $cinema->name; ?></h2>
       <hr />
     </div>
 	</div>
 </div>
 
 <?php
-    $movie_path = 'http://localhost/PopCornMovies/movies/';
+    $movie_path = $this->config->item('backend_url') . 'movies/';
     $movies_json = file_get_contents($movie_path);
     $movies = json_decode($movies_json);
 	  $cin = [0 => false, 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => []];
@@ -100,7 +100,7 @@
                     </tr>
         					</tbody>
       					</table>
-                <p><a href="/PopCornFrontend/movies/<?php echo $movie->id; ?>"><h5>Weitere Informationen</h5></a></p>
+                <p><a href="<?= base_url('movies/' . $movie->id) ?>"><h5>Weitere Informationen</h5></a></p>
               </div>
           </div>
       </div>
@@ -109,7 +109,7 @@
       	<div class="row">
       		<div class="col-lg-12">
       		<?php
-          	$path = 'http://localhost/PopCornMovies/ratings/?movie_id=' . $id . '&type=custom_avg';
+          	$path = $this->config->item('backend_url') . 'ratings/?movie_id=' . $id . '&type=custom_avg';
           	$ratings_json = file_get_contents($path);
           	$rating = json_decode($ratings_json);
       		?>
